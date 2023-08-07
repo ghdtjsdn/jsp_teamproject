@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAME</title>
     <!-- 파비콘 시작 -->
-        <link rel="icon" type="image/x-icon" sizes="16x16" href="img_/favicon.ico">
-    <link rel="shortcut icon" type="image/x-icon" href="img_/favicon.ico">
+        <link rel="icon" type="image/x-icon" sizes="16x16" href="/jsp_teamproject/static/img_/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/jsp_teamproject/static/img_/favicon.ico">
     <!-- 파비콘 끝 -->
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -73,42 +73,8 @@ footer { border-top: 1px solid #333; text-align: center; font-size: 18px; font-w
 <body class= "d-flex vw-100 vh-100 text-center flex-column justify-content-between"> 
      <!-- 화면크기 뷰포트설정/플렉스 반영(헤더메인푸터:세로로/한방에중앙정렬) -->
      <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="index.jsp">게임</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-              <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                <li class="nav-item">
-                  <a class="nav-link" href="rsp.jsp">가위바위보</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="lotto.jsp">로또</a>
-                </li>
-                <!-- <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Link
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
-                </li> -->
-              </ul>
-              <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-            </div>
-          </div>
-        </nav>
+      <%@ include file="/jsp/header/header.jsp" %>
+      <%@ include file="/jsp/game/header/header.jsp" %>  
   </header>
 
 

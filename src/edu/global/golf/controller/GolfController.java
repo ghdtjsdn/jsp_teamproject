@@ -81,7 +81,7 @@ public class GolfController extends HttpServlet{
 			viewPage = "redirect:/index.do";
 		}
 		
-		if("redirect:".equals(viewPage.substring(0,9))) {
+		if("redirect:".equals(viewPage.substring(0, viewPage.length() > 9 ? 9 : viewPage.length()))) {
 			String redirectPage = contextPath + viewPage.substring(9);
 			resp.sendRedirect(redirectPage);
 		} else {

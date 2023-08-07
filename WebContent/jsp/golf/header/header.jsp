@@ -7,10 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>헤더</title>
 </head>
-<style>
-
-
-</style>
 <body>
   <div id="golf-header-container" class="h-25 text-white">
     <div class="fs-1 text-center bg-dark bg-gradient p-5">
