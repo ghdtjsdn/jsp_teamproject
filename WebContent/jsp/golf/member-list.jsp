@@ -7,12 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- favicon -->
+<link rel="shortcut icon" href="/jsp_teamproject/static/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/jsp_teamproject/static/images/favicon.ico" type="image/x-icon">
 <title>수강생조회 페이지</title>
 </head>
 <body class="d-flex vw-100 vh-100 flex-column justify-content-between">
 <header>
   <%@ include file="/jsp/header/header.jsp" %>
   <%@ include file="/jsp/golf/header/header.jsp" %>
+
 </header>
 <main class="d-flex w-100 h-100 flex-column align-items-center"
       style="background-color: var(--bs-gray-300);">

@@ -8,9 +8,6 @@
 <title>헤더</title>
 </head>
 <style>
-*{
-  box-sizing: border-box;
-}
 
 
 </style>

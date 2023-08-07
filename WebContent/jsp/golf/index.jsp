@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- favicon -->
-<link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/jsp_teamproject/static/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/jsp_teamproject/static/images/favicon.ico" type="image/x-icon">
 <title>골프연습장 메인 페이지</title>
 <link
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
