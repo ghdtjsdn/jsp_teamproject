@@ -16,7 +16,7 @@ import edu.global.golf.command.GolfRegistCommand;
 import edu.global.golf.command.GolfSalesResultCommand;
 import edu.global.golf.command.GolfTeacherListCommand;
 
-@WebServlet(urlPatterns={"/golf/*"})
+@WebServlet("/golf/*")
 public class GolfController extends HttpServlet{
 
 	public GolfController() {}
@@ -40,6 +40,7 @@ public class GolfController extends HttpServlet{
 		
 		String uri = req.getRequestURI();
 		String subPath = "/golf";
+		String forwardPrefix = "/jsp/golf";
 		String contextPath = req.getContextPath() + subPath;
 		String com = uri.substring(contextPath.length());
 		
@@ -57,9 +58,8 @@ public class GolfController extends HttpServlet{
 			command.execute(req, resp);
 			
 			viewPage = "/teacher-list.jsp";
-		} else if("/regist-page.do".equals(com)) {
-			command = new GolfMemberListCommand();
-			command.execute(req, resp);
+		} else if("/regist-page.do".equals(com)) { 
+			//command.execute(req, resp);
 			
 			viewPage = "/regist-page.jsp";
 		} else if("/regist.do".equals(com)) {
@@ -82,10 +82,10 @@ public class GolfController extends HttpServlet{
 		}
 		
 		if("redirect:".equals(viewPage.substring(0,9))) {
-			String redirectPage = contextPath+viewPage.substring(9);
+			String redirectPage = contextPath + viewPage.substring(9);
 			resp.sendRedirect(redirectPage);
 		} else {
-			String forwardPage = "/jsp/golf"+viewPage;
+			String forwardPage = forwardPrefix + viewPage;
 			RequestDispatcher dispatcher = req.getRequestDispatcher(forwardPage);
 			dispatcher.forward(req, resp);
 		}
