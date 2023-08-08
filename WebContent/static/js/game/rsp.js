@@ -1,25 +1,31 @@
 /**
- * Rock Scissors Paper JavaScript
+ * Game rsp.jsp 에 include할 javascript파일
+ * 가위바위보 게임
  */
 
-// 가위바위보 게임
+
 function userChoice(user) {
 	const choices = ['가위', '바위', '보'];
 	const computer = choices[Math.floor(Math.random() * choices.length)];
+	const cpath= "/"+location.pathname.split("/")[1];
+	const imageFolder = "/static/images/game";
 	let result = '';
 
-
 	if (user === '가위') {
-		document.querySelector("#YOU").src = '/jsp_teamproject/static/img_/sissor.jpg';
+		document.querySelector("#YOU").src = `${cpath}${imageFolder}/sissor.jpg`;
 	} else if (user === '바위') {
-		document.querySelector("#YOU").src = '/jsp_teamproject/static/img_/rock.jpg';
-	} else { document.querySelector("#YOU").src = '/jsp_teamproject/static/img_/paper.jpg'; }
+		document.querySelector("#YOU").src = `${cpath}${imageFolder}/rock.jpg`;
+	} else {
+		document.querySelector("#YOU").src = `${cpath}${imageFolder}/paper.jpg`;
+	}
 
 	if (computer === '가위') {
-		document.querySelector("#COM").src = '/jsp_teamproject/static/img_/sissor.jpg';
+		document.querySelector("#COM").src = `${cpath}${imageFolder}/sissor.jpg`;
 	} else if (computer === '바위') {
-		document.querySelector("#COM").src = '/jsp_teamproject/static/img_/rock.jpg';
-	} else { document.querySelector("#COM").src = '/jsp_teamproject/static/img_/paper.jpg'; }
+		document.querySelector("#COM").src = `${cpath}${imageFolder}/rock.jpg`;
+	} else {
+		 document.querySelector("#COM").src = `${cpath}${imageFolder}/paper.jpg`;
+	}
 
 
 
