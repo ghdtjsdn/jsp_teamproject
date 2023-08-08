@@ -24,7 +24,7 @@ select * from TBL_GOLF_TEACHER;
 drop table tbl_golf_member;
 
 create table TBL_GOLF_MEMBER(
-    C_NO CHAR(5) PRIMARY KEY,
+    C_NO CHAR(5) PRIMARY KEY, 
     C_NAME VARCHAR2(15),
     PHONE VARCHAR2(11),
     ADDRESS VARCHAR2(50),

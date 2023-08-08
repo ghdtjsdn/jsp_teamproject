@@ -11,11 +11,12 @@ const className = document.querySelector("#class-name");
 const tuition = document.querySelector("#tuition");
 const submitBtn = document.querySelector("#submit");
 
-const cNameList=["홍길동", "장발장", "임꺽정", "성춘향", "이몽룡"];
+const cNames= document.querySelectorAll("#c-name option")//.filter((e, i)=> i>0).forEach(e => console.log(e));
+const cNameList = ["홍길동", "장발장", "임꺽정", "성춘향", "이몽룡"];
 const cNoList=["10001", "10002", "10003", "20001", "20002"];
 const classAreaList=["서울본원", "성남분원", "대전분원", "부산분원", "대구분원"];
 const classNameList = ["초급반", "초급반", "중급반", "고급반", "심화반"];
-const tuitionList = [100000, 100000, 200000, 150000, 200000];
+const tuitionList = [100000, 100000, 200000, 300000, 400000];
 
 cName.addEventListener("change",() =>{
   const cNameIndex = cNameList.indexOf(cName.value);

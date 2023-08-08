@@ -24,9 +24,9 @@
 			<div class="collapse navbar-collapse" id="gameNavbarScroll">
 				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
 					style="-bs-scroll-height: 100px;">
-					<li class="nav-item"><a class="nav-link" href="${cpath }${subpath }/rsp.do">가위바위보</a>
+					<li class="nav-item"><a id="rsp-page" class="nav-link" href="${cpath }${subpath }/rsp.do">가위바위보</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="${cpath }${subpath }/lotto.do">로또</a>
+					<li class="nav-item"><a id="lotto-page" class="nav-link" href="${cpath }${subpath }/lotto.do">로또</a>
 					</li>
 					<!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,6 +51,7 @@
 			</div>
 		</div>
 	</nav>
+  <script src="${cpath }/static/js/game/header/header.js"></script>
 <!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html> -->

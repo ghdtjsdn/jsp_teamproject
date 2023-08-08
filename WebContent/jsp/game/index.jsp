@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="cpath" value="${pageContext.request.contextPath }" />	
+<c:set var="imageFolder" value="/static/images/game" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@
 
 <style>
 #main-image {
-	background: url(${cpath }/static/img_/main.jpg) no-repeat center/cover;
+	background: url(${cpath }${imageFolder}/main.jpg) no-repeat center/cover;
 	width: 25rem;
 	height: 25rem;
 	background-position: center;

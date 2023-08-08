@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="cpath" value="${pageContext.request.contextPath }"/>
+<c:set var="imageFolder" value="/static/images/game" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,7 +16,7 @@
 </head>
 
 <style>
-  main { background: url(${cpath }/static/img_/main.png) no-repeat; width: 100vw; height: 100vh; background-position: center; }
+  main { background: url(${cpath }${imageFolder}/main.png) no-repeat; width: 100vw; height: 100vh; background-position: center; }
   footer { border-top: 1px solid #333; text-align: center; font-size: 18px; font-weight: bold; padding: 50px 0; }
 </style>
 
@@ -32,7 +33,7 @@
     <div class = "d-flex justify-content-evenly">
         
         <div id = "" class="card" style="width: 18rem;">
-            <div class="img"><img id = "YOU" src = "${cpath }/static/images/game/rock.jpg" style="width:14rem; height:14rem;"></div>
+            <div class="img"><img id = "YOU" src = "${cpath }${imageFolder }/rock.jpg" style="width:14rem; height:14rem;"></div>
             <div class="card-body">
                 <p>YOU</p>
                 <button type="button" onclick="userChoice('가위')">가위</button>
@@ -42,7 +43,7 @@
           </div>
          
         <div id = "JUDGE" class="card" style="width: 18rem;">
-            <div class="img"><img id = "JUDGE" src = "${cpath }/static/images/game/cinnamoroll.jpg" style="width:14rem; height:14rem;" ></div>
+            <div class="img"><img id = "JUDGE" src = "${cpath }${imageFolder }/cinnamoroll.jpg" style="width:14rem; height:14rem;" ></div>
             <div class="card-body">
                 <p>심판</p>
                 <p id="result"></p>
@@ -50,7 +51,7 @@
         </div>
     
         <div id = "COMPUTER" class="card" style="width: 18rem;">
-            <div class="img"><img id = "COM" src = "${cpath }/static/images/game/rock.jpg" style="width:14rem; height:14rem;"></div>
+            <div class="img"><img id = "COM" src = "${cpath }${imageFolder }/rock.jpg" style="width:14rem; height:14rem;"></div>
             <div class="card-body">
                 <p>COM</p>
             </div>

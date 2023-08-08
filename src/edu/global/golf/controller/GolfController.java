@@ -59,14 +59,14 @@ public class GolfController extends HttpServlet{
 			
 			viewPage = "/teacher-list.jsp";
 		} else if("/regist-page.do".equals(com)) { 
-			//command.execute(req, resp);
-			
-			viewPage = "/regist-page.jsp";
-		} else if("/regist.do".equals(com)) {
 			command = new GolfRegistCommand();
 			command.execute(req, resp);
 			
-			viewPage = "redirect:/index.do";
+			viewPage = "/regist-page.jsp";
+		} else if("/regist.do".equals(com)) {
+			//command.execute(req, resp);
+			
+			viewPage = "/index.do";
 		} else if("/member-list.do".equals(com)){
 			command = new GolfMemberListCommand();
 			command.execute(req, resp);
@@ -78,11 +78,10 @@ public class GolfController extends HttpServlet{
 			
 			viewPage ="/sales-result.jsp";
 		} else {
-			viewPage = "redirect:/index.do";
+			viewPage = "/index.do";
 		}
-		
-		if("redirect:".equals(viewPage.substring(0, viewPage.length() > 9 ? 9 : viewPage.length()))) {
-			String redirectPage = contextPath + viewPage.substring(9);
+		if("do".equals(viewPage.split("\\.")[1])) {
+			String redirectPage = contextPath + viewPage;
 			resp.sendRedirect(redirectPage);
 		} else {
 			String forwardPage = forwardPrefix + viewPage;

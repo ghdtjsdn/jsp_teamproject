@@ -35,11 +35,9 @@
         <td>
           <select id="c-name" name="c-name">
             <option selected disabled>이름을 선택하세요</option>   
-            <option value="홍길동">홍길동</option>
-            <option value="장발장">장발장</option>
-            <option value="임꺽정">임꺽정</option>
-            <option value="성춘향">성춘향</option>
-            <option value="이몽룡">이몽룡</option>
+            <c:forEach var="member" items="${ memberList}">
+            <option value="${member.c_name }">${member.c_name }</option>
+            </c:forEach>
           </select>
         </td>
       </tr>
@@ -51,7 +49,7 @@
         <th scope="row" class="text-center">강의장소</th>
         <td>
           <select id="class-area" name="class-area">
-            <option selected disabled>강의장소를 선택하세요</option>   
+            <option selected disabled>강의장소를 선택하세요</option>
             <option value="서울본원">서울본원</option>
             <option value="성남분원">성남분원</option>
             <option value="대전분원">대전분원</option>
