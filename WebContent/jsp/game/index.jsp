@@ -24,14 +24,16 @@
 </style>
 
 
-<body class= "d-flex vw-100 vh-100 text-center flex-column justify-content-between"> 
+<body class= "d-flex vw-100 vh-100 flex-column justify-content-between"> 
      <!-- 화면크기 뷰포트설정/플렉스 반영(헤더메인푸터:세로로/한방에중앙정렬) -->
     <header>
       <%@ include file="/jsp/header/header.jsp" %>
       <%@ include file="/jsp/game/header/header.jsp" %>  
     </header>
     <main class="d-flex flex-column align-items-center"><div id="main-image"></div></main>
-	<header></header>
+	<footer>
+          Copyright 2023. June Yu. All rights reserved
+  </footer>
     
 </body>
 </html>
