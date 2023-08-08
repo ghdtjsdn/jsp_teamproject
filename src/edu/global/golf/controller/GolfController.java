@@ -34,7 +34,7 @@ public class GolfController extends HttpServlet{
 	public void actionDo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		req.setCharacterEncoding("UTF-8");
-		
+		String jsonResponse = null;
 		String viewPage = null;
 		GolfCommand command = null;
 		
@@ -65,8 +65,14 @@ public class GolfController extends HttpServlet{
 			viewPage = "/regist-page.jsp";
 		} else if("/regist.do".equals(com)) {
 			//command.execute(req, resp);
-			
-			viewPage = "/index.do";
+	        resp.setContentType("application/json");
+	        resp.setCharacterEncoding("UTF-8");
+
+	        viewPage = "/index.do";
+	        String msg = "수강신청이 완료되었습니다.";
+			String redirectPage = contextPath + viewPage;
+
+			jsonResponse = jsonParse(msg, redirectPage);
 		} else if("/member-list.do".equals(com)){
 			command = new GolfMemberListCommand();
 			command.execute(req, resp);
@@ -80,7 +86,10 @@ public class GolfController extends HttpServlet{
 		} else {
 			viewPage = "/index.do";
 		}
-		if("do".equals(viewPage.split("\\.")[1])) {
+		
+		if(jsonResponse != null) {
+			resp.getWriter().write(jsonResponse);
+		} else if("do".equals(viewPage.split("\\.")[1])) {
 			String redirectPage = contextPath + viewPage;
 			resp.sendRedirect(redirectPage);
 		} else {
@@ -91,5 +100,11 @@ public class GolfController extends HttpServlet{
 		
 	}
 	
-	
+	String jsonParse(String msg, String redirectPage) {
+		String jsonResponse = "{"
+        		+ "\"msg\": \""+msg+"\","
+        		+ "\"redirectPage\": \""+ redirectPage
+        		+ "\"}";
+		return jsonResponse;
+	}
 }

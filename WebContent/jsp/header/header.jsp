@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="cpath" value="${pageContext.request.contextPath }" />  
+<c:set var="cPath" value="${pageContext.request.contextPath }" />
+<c:set var="jsFolder" value="/static/js" />
 <!-- <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -24,23 +25,18 @@
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
         style="-bs-scroll-height: 100px;">
         <li class="nav-item"><a id="shop-page" class="nav-link"
-          href="${cpath }/shop">쇼핑몰</a></li>
+          href="${cPath }/shop">쇼핑몰</a></li>
         <li class="nav-item"><a id="vote-page" class="nav-link"
-          href="${cpath }/vote">투표</a></li>
+          href="${cPath }/vote">투표</a></li>
         <li class="nav-item"><a id="golf-page" class="nav-link"
-          href="${cpath }/golf">골프장</a></li>
+          href="${cPath }/golf">골프장</a></li>
         <li class="nav-item"><a id="game-page" class="nav-link"
-          href="${cpath }/game">게임</a></li>
+          href="${cPath }/game">게임</a></li>
       </ul>
     </div>
   </div>
 </nav>
-<script>
-  const currentSubPath = location.pathname.split("/");
-  const subPathNode = document.querySelector("#"+currentSubPath[2]+"-page");
-  if(subPathNode!==null) subPathNode.classList.add("active");
-  
-</script>
+<script src="${cPath }${jsFolder }/header/header.js"></script>
 <!-- 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  
 </body>

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+.ball { display: flex; justify-content: center; align-items: center; width: 150px; height: 150px; font-size: 28px; border-radius: 100%; text-align: center; vertical-align: middle; color: #fff; font-weight: bold; text-shadow: 0px 0px 3px rgba(73, 57, 0, .8); margin: 0 20px; }
+
+.ball1 {
+    background: #ffdf88;
+}
+.ball2 {
+    background: #89c0ff;
+}
+.ball3 {
+    background: #ff9e9e;
+}
+.ball4 {
+    background: #d47dff;
+}
+.ball5 {
+    background: #bbff94;
+}
+.ball6 { background: #6fffb9; }
+
+footer { border-top: 1px solid #333; text-align: center; font-size: 18px; font-weight: bold; padding: 50px 0; }

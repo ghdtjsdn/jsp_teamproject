@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="cpath" value="${pageContext.request.contextPath }" />	
-<c:set var="imageFolder" value="/static/images/game" />
+<c:set var="cPath" value="${pageContext.request.contextPath }"/>
+<c:set var="subPath" value="/game" />
+<c:set var="imageFolder" value="/static/images${subPath }" />
+<c:set var="jsFolder" value="/static/js${subPath }" />
+<c:set var="cssFolder" value="/static/css${subPath }" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,26 +19,9 @@
 <!--  <link rel="manifest" href="./img_/site.webmanifest"> -->
 <!-- 파비콘 끝 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"rel="stylesheet">
-
+<link href="${cPath }${cssFolder}/index.css" rel="stylesheet" />
 
 </head>
-
-<style>
-#main-image {
-	background: url(${cpath }${imageFolder}/main.jpg) no-repeat center/cover;
-	width: 25rem;
-	height: 25rem;
-	background-position: center;
-}
-
-footer {
-	border-top: 1px solid #333;
-	text-align: center;
-	font-size: 18px;
-	font-weight: bold;
-	padding: 50px 0;
-}
-</style>
 
 
 <body
@@ -51,6 +37,7 @@ footer {
 	<footer>
 			<%@ include file="/jsp/game/footer/footer.jsp" %>
 	</footer>
+	<script src="${cPath }${jsFolder}/index.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
