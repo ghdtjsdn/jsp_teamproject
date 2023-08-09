@@ -8,9 +8,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- favicon -->
-<link rel="shortcut icon" href="/jsp_teamproject/static/images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/jsp_teamproject/static/images/favicon.ico" type="image/x-icon">
+	<%@ include file="/jsp/golf/header/favicon.jsp" %>
 <title>강사조회 페이지</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"rel="stylesheet">
 </head>
 <body class="d-flex vw-100 vh-100 flex-column justify-content-between">
 <header>
@@ -46,5 +46,6 @@
 <footer>
   <%@ include file="/jsp/golf/footer/footer.jsp" %>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> 
 </body>
 </html>
