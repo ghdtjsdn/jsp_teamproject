@@ -2,8 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="cPath" value="${pageContext.request.contextPath }"/>
 <c:set var="subPath" value="/golf" />
-<c:set var="imageFolder" value="/static/images${subPath }" />
-<c:set var="jsFolder" value="/static/js${subPath }" />
+<c:set var="imageFolder" value="${cPath }/static/images${subPath }" />
+<c:set var="jsFolder" value="${cPath }/static/js${subPath }" />
 <!-- <!DOCTYPE html>
  <html lang="ko">
 <head>
@@ -35,7 +35,7 @@
     </div>
   </nav>
 </div>
-<script src="${cPath }${jsFolder}/header/header.js"></script>
+<script src="${jsFolder}/header/header.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>    
 </body>
 </html> -->

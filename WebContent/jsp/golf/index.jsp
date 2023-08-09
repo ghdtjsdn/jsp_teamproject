@@ -12,13 +12,13 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"rel="stylesheet">
   
 </head>
-<body class="d-flex vw-100 vh-100 flex-column justify-content-between">
+<body class="d-flex w-100 vh-100 flex-column justify-content-between">
 <header>
   <%@ include file="/jsp/header/header.jsp" %>
   <%@ include file="/jsp/golf/header/header.jsp" %>
 </header>
 
-<main class="d-flex h-100 flex-column align-items-center"
+<main class="d-flex w-100 h-100 flex-column align-items-center"
       style="background-color: var(--bs-gray-300);">
   <div>
     <h1 class="mt-5 mb-3">골프연습장 회원관리 프로그램</h1>
@@ -27,7 +27,6 @@
 <footer>
   <%@ include file="/jsp/golf/footer/footer.jsp" %>
 </footer>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>    
 </body>
 </html>

@@ -11,7 +11,9 @@ body{
 	color:#454545;
 }
 #header{
-	background: url("/jsp_teamproject/static/images/vote/communism.jpg") red no-repeat left/cover;
+	background: url("/jsp_teamproject/static/images/vote/communism.jpg") rgb(223, 6, 1) no-repeat;
+	background-position: left;
+	background-size: contain;
 	color:#f1f1f1;
 }
 
@@ -30,9 +32,7 @@ table th{
 table{
 	width: 700px;
 }
-td input, select{
-	padding: 0.3rem;
-}
+
 #golf-nav li a{
 	border-radius:2em;
 	transition: .3s;
@@ -44,6 +44,6 @@ td input, select{
 }
 
 footer{
-  background-color:red;
+  background-color:rgb(223, 6, 1);
   color:#0e0e0e;
 }

@@ -3,9 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="cPath" value="${pageContext.request.contextPath }"/>
 <c:set var="subPath" value="/game" />
-<c:set var="imageFolder" value="/static/images${subPath }" />
-<c:set var="jsFolder" value="/static/js${subPath }" />
-<c:set var="cssFolder" value="/static/css${subPath }" />
+<c:set var="currentPath" value="${cPath }${subPath }"/>
+<c:set var="imageFolder" value="${cPath }/static/images${subPath }" />
+<c:set var="jsFolder" value="${cPath }/static/js${subPath }" />
+<c:set var="cssFolder" value="${cPath }/static/css${subPath }" /> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,25 +20,24 @@
 <!--  <link rel="manifest" href="./img_/site.webmanifest"> -->
 <!-- 파비콘 끝 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"rel="stylesheet">
-<link href="${cPath }${cssFolder}/index.css" rel="stylesheet" />
+<link href="${cssFolder}/index.css" rel="stylesheet" />
 
 </head>
 
 
 <body
-	class="d-flex vw-100 vh-100 text-center flex-column justify-content-between">
+	class="d-flex w-100 vh-100 text-center flex-column justify-content-between">
 	<!-- 화면크기 뷰포트설정/플렉스 반영(헤더메인푸터:세로로/한방에중앙정렬) -->
 	<header>
 		<%@ include file="/jsp/header/header.jsp"%>
 		<%@ include file="/jsp/game/header/header.jsp"%>
 	</header>
 	<main class="d-flex flex-column align-items-center">
-		<div id="main-image"></div>
 	</main>
 	<footer>
 			<%@ include file="/jsp/game/footer/footer.jsp" %>
 	</footer>
-	<script src="${cPath }${jsFolder}/index.js"></script>
+	<script src="${jsFolder}/index.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

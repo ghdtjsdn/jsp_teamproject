@@ -1,7 +1,5 @@
 @charset "UTF-8";
-:root {
-	--main-img: url();  /* CSS 전역 변수 선언 */
-}
 
-main { background: var(--main-img) no-repeat center 25rem; width: 100vw; height: 100vh; background-position: center; }
+
+main { /* background: url("/jsp_teamproject/static/images/game/main.jpg") no-repeat; */ background-position: center; background-size:25rem; }
 footer { border-top: 1px solid #333; text-align: center; font-size: 18px; font-weight: bold; padding: 50px 0; }
