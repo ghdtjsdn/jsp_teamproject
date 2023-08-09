@@ -46,8 +46,7 @@ public class VoteDao {
       sql+= " m_no, ";
       sql+= " substr(v_time,1,2)||':'||substr(v_time,3,2) v_time, ";
       sql+= " DECODE(v_confirm,'Y','확인','미확인') v_confirm ";
-      sql+= " FROM tbl_vote_202005 ";
-      sql+= " WHERE v_area='제1투표장'";
+      sql+= " FROM TABLE_VOTE ";
       try {
     	  con = datasource.getConnection();
           stmt = con.prepareStatement(sql);
@@ -91,7 +90,7 @@ public class VoteDao {
 	      try {
 	    	  String sql = "SELECT ";
 		       sql+= " M.m_no, M.m_name, count(*) AS v_total";
-		       sql+= " FROM tbl_member_202005 M, tbl_vote_202005 V";
+		       sql+= " FROM TABLE_MEMBER M, TABLE_VOTE V";
 		       sql+= " WHERE M.m_no = V.m_no AND V.v_confirm = 'Y' ";
 		       sql+= " GROUP BY M.m_no, M.m_name";
 		       sql+= " ORDER BY v_total DESC";
@@ -135,10 +134,10 @@ public class VoteDao {
 	                  + " when substr(d.p_school,1,1) = '2' then '학사'"
 	                  + " when substr(d.p_school,1,1) = '3' then '석사'"
 	                  + " end as p_school,"
-	                  + " substr(d.m_ssnum,1,6)||'-'||substr(d.m_ssnum,7,14) AS m_ssnum,"
+	                  + " substr(d.m_jumin,1,6)||'-'||substr(d.m_jumin,7,14) AS m_jumin,"
 	                  + " d.m_city AS m_city, a.p_tel1||'-'||a.p_tel2"
 	                  + "||'-'||a.p_tel3 as p_tel"
-	                  + " from TBL_PARTY_2023 a, TBL_MEMBER_2023 d"
+	                  + " from TABLE_PARTY a, TABLE_MEMBER d"
 	                  + " where a.p_code=d.p_code";
 
 		con = datasource.getConnection();
@@ -186,7 +185,7 @@ public class VoteDao {
 				String v_area = request.getParameter("v_area");
 				String v_confirm = request.getParameter("v_confirm");
 				
-				String sql = "INSERT INTO tbl_vote_202005 VALUES(?,?,?,?,?,?)";
+				String sql = "INSERT INTO table_vote VALUES(?,?,?,?,?,?)";
 				con = datasource.getConnection();
 				stmt = con.prepareStatement(sql);
 				stmt.setString(1, v_jumin);

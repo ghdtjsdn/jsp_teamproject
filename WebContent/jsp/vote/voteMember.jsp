@@ -11,7 +11,7 @@
 <%@ include file="topmenu.jsp" %>
 <section>
 <h2>∙ 투표하기 ∙</h2>
-<form name="frm" method="post" action="vote.do">
+<form id="form" method="post" action="vote.do">
 <div class="table">
 	<table>
 		<tr>
@@ -60,7 +60,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" style="text-align:center">
-			<button class="btn" type="submit" onclick="fn_submit();return false;">투표하기</button>
+			<input type="button" id="submit-btn" class="btn" value="투표하기"/>
 			<button class="btn" type="button" onclick="fn_reset()">다시하기</button>
 			</td>
 		</tr>

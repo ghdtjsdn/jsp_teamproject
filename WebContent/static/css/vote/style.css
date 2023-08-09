@@ -13,19 +13,19 @@ header{
 	width:100%;
 	height:160px;
 	line-height:160px;
-	background-color:#7d9caf;
+	background: url("/jsp_teamproject/static/images/vote/communism.jpg") red no-repeat left/cover;
 	color:#f1f1f1;
 }
 nav ul{
 	width:100%;
 	height:60px;
 	line-height:60px;
-	background-color:#555f6d;
+	background-color:black;
 	color:#f1f1f1;
 }
 nav ul li{
 	font-size:1em;
-	list-style:none; /* li 앞에 표시를 제거한다. */
+	list-style:none;
 	float:left; 
 	padding:0 10px;
 }
@@ -43,7 +43,7 @@ section{
 	overflow:auto;
 	width:100%;
 	height:100%;
-	background-color:#e1effa;
+	background-color:white;
 }
 h2{
 	padding:1.6rem;
@@ -83,6 +83,6 @@ footer{
 	width:100%;
 	height:30px;
 	line-height:30px;
-	background-color:#7d9caf;
-	color:#f1f1f1;
-}
+	background-color:red;
+	color:#0e0e0e;
+}	
