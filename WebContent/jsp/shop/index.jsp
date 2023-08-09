@@ -5,13 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
+<title>index</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"rel="stylesheet">
 <link rel="stylesheet" href="/jsp_teamproject/static/css/shop/shop.css">
+<link rel="shortcut icon" href="/jsp_teamproject/static/images/shop/pocketmon1.webp">
 </head>
 <body class="d-flex vw-100 vh-100 flex-column justify-content-between">
 
-<header>
+<header >
 	<%@ include file="/jsp/header/header.jsp" %>
 	<%@ include file="/jsp/shop/shopheader/shopheader.jsp" %>
 </header>
@@ -33,12 +34,9 @@
 		5.회원정보 조회 프로그램을 작성한다.
 		6.회원매출정보 조회 프로그램을 작성한다.
 	</pre>
-	
 </main>
 </section>
 
-<footer>
 	<%@ include file="/jsp/shop/shopfooer/shopfooter.jsp" %>
-</footer>
 </body>
 </html>
