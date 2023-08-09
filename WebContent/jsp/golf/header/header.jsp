@@ -10,7 +10,7 @@
 <body>
   <div id="golf-header-container" class="h-25 text-white">
     <div class="fs-1 text-center bg-dark bg-gradient p-5">
-      골프연습장 회원관리 프로그램 ver 1.0
+      	골프연습장 회원관리 프로그램 ver 1.0
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
      <div class="container-fluid">
