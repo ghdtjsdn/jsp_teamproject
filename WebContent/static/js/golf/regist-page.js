@@ -93,14 +93,14 @@ async function submitForm(action) {
 	formData.append("grade", grade);
 	
     // 다른 필드들도 필요한대로 추가해주세요
-        const formDataString = new URLSearchParams(formData).toString();
+  const formDataString = new URLSearchParams(formData).toString();
 	try {
 		const response = await axios.post(action, formDataString, {
 	      headers: {
 	        "Content-Type": "application/x-www-form-urlencoded" // MIME 타입 설정
 	      }	
-	    });
-	    const {msg, redirectPage} = response.data;
+	  });
+	  const {msg, redirectPage} = response.data;
 		if (response.status === 200) {
 			alert(msg);
 		} else {
