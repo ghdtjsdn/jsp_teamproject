@@ -13,7 +13,7 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 	
-	<servlet>
+<!-- 	<servlet>
 		<servlet-name>test</servlet-name>
 		<servlet-class>edu.global.vote.dao.VoteController</servlet-class>
 	</servlet>
@@ -21,5 +21,5 @@
 	<servlet-mapping>
 		<servlet-name>test</servlet-name>
 		<url-pattern>*.do</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
 </web-app>

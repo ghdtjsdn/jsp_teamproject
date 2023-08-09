@@ -18,7 +18,7 @@ import jsp_teamproject_shop_command.MemberWriteCommand;
 import jsp_teamproject_shop_dao.MemberDao;
 import jsp_teamproject_shop_dto.MemberDto;
 
-@WebServlet("*.do")
+@WebServlet("/shop/*")
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
