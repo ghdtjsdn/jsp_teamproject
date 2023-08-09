@@ -1,0 +1,19 @@
+@charset "UTF-8";
+:root{
+	--main-img: url();
+}
+
+#main-image {
+	background: var(--main-img) no-repeat center/cover;
+	width: 25rem;
+	height: 25rem;
+	background-position: center;
+}
+
+footer {
+	border-top: 1px solid #333;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 50px 0;
+}

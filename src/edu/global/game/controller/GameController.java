@@ -54,11 +54,11 @@ public class GameController extends HttpServlet {
 		} else if("/lotto.do".equals(com)) {
 			viewPage = "/lotto.jsp";
 		}else {
-			viewPage = "redirect:/index.do";
+			viewPage = "/index.do";
 		}
 		
-		if("redirect:".equals(viewPage.substring(0, viewPage.length() > 9 ? 9 : viewPage.length()))) {
-			String redirectPage = contextPath + viewPage.substring(9);
+		if("do".equals(viewPage.split("\\.")[1])) {
+			String redirectPage = contextPath + viewPage;
 			response.sendRedirect(redirectPage);
 		} else {
 			String forwardPage = forwardPrefix + viewPage;
