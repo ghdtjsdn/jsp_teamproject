@@ -2,7 +2,7 @@
  * GAME lotto.jsp에서 include할 javascript 파일  
  */
 
-
+const lottoBtn = document.querySelector("#lotto-btn");
 function lottoNumbers() {
 	const numbers = [];
 	while (numbers.length < 6) {
@@ -29,4 +29,4 @@ function lottoNumbers() {
 	}
 }
 
-window.onload = lottoNumbers;
+ lottoBtn.addEventListener("click",lottoNumbers);

@@ -3,28 +3,29 @@
  * 가위바위보 게임
  */
 
+const cPath= `/${location.pathname.split("/")[1]}`;
+const subPath = "/game";
+const imageFolder = `/static/images${subPath}`;
 
 function userChoice(user) {
 	const choices = ['가위', '바위', '보'];
 	const computer = choices[Math.floor(Math.random() * choices.length)];
-	const cpath= "/"+location.pathname.split("/")[1];
-	const imageFolder = "/static/images/game";
 	let result = '';
 
 	if (user === '가위') {
-		document.querySelector("#YOU").src = `${cpath}${imageFolder}/sissor.jpg`;
+		document.querySelector("#YOU").src = `${cPath}${imageFolder}/sissor.jpg`;
 	} else if (user === '바위') {
-		document.querySelector("#YOU").src = `${cpath}${imageFolder}/rock.jpg`;
+		document.querySelector("#YOU").src = `${cPath}${imageFolder}/rock.jpg`;
 	} else {
-		document.querySelector("#YOU").src = `${cpath}${imageFolder}/paper.jpg`;
+		document.querySelector("#YOU").src = `${cPath}${imageFolder}/paper.jpg`;
 	}
 
 	if (computer === '가위') {
-		document.querySelector("#COM").src = `${cpath}${imageFolder}/sissor.jpg`;
+		document.querySelector("#COM").src = `${cPath}${imageFolder}/sissor.jpg`;
 	} else if (computer === '바위') {
-		document.querySelector("#COM").src = `${cpath}${imageFolder}/rock.jpg`;
+		document.querySelector("#COM").src = `${cPath}${imageFolder}/rock.jpg`;
 	} else {
-		 document.querySelector("#COM").src = `${cpath}${imageFolder}/paper.jpg`;
+		 document.querySelector("#COM").src = `${cPath}${imageFolder}/paper.jpg`;
 	}
 
 
@@ -49,3 +50,8 @@ function userChoice(user) {
 
 	resultElement.textContent = result;
 }
+
+
+const $main = document.querySelector('main');
+$main.style.setProperty('--main-img', `url(${cPath}${imageFolder}/main.jpg)`);
+console.log($main)
