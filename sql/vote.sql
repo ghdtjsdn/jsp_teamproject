@@ -1,10 +1,13 @@
+desc table_vote;
+
 create table table_vote(
 v_jumin char(13) not null primary key,
 v_name varchar2(20),
 m_no char(1),
 v_time char(4),
 v_area char(20),
-v_confirm char(1));
+v_confirm char(1)
+);
 
 create table table_member(
 m_no char(1) not null primary key,
@@ -12,7 +15,8 @@ m_name varchar2(20),
 p_code char(2),
 p_school char(1),
 m_jumin char(13),
-m_city varchar2(20));
+m_city varchar2(20)
+);
 
 create table table_party(
 p_code char(2) not null primary key,
@@ -21,45 +25,48 @@ p_indate date,
 p_reader varchar2(20),
 p_tel1 char(3),
 p_tel2 char(4),
-p_tel3 char(4));
+p_tel3 char(4)
+);
 
-insert into table_member values ('1', '±èÈÄº¸', 'P1', '1', '6603011999991', '¼ö¼±È­µ¿');
-insert into table_member values ('2', 'ÀÌÈÄº¸', 'P2', '3', '5503011999992', '¹Îµé·¡µ¿');
-insert into table_member values ('3', '¹ÚÈÄº¸', 'P3', '2', '7703011999993', '³ªÆÈ²Éµ¿');
-insert into table_member values ('4', 'Á¶ÈÄº¸', 'P4', '2', '8803011999994', 'Áø´Ş·¡µ¿');
-insert into table_member values ('5', 'ÃÖÈÄº¸', 'P5', '3', '9903011999995', '°³³ª¸®µ¿');
-
-insert into table_party values ('P1', 'AÁ¤´ç', '2010-01-01', 'À§´ëÇ¥', '02', '1111', '0001');
-insert into table_party values ('P2', 'BÁ¤´ç', '2010-02-01', '¸í´ëÇ¥', '02', '1111', '0002');
-insert into table_party values ('P3', 'CÁ¤´ç', '2010-03-01', '±â´ëÇ¥', '02', '1111', '0003');
-insert into table_party values ('P4', 'DÁ¤´ç', '2010-04-01', '¿Á´ëÇ¥', '02', '1111', '0004');
-insert into table_party values ('P5', 'EÁ¤´ç', '2010-05-01', 'ÀÓ´ëÇ¥', '02', '1111', '0005');
-
-insert into table_vote values ('99010110001', '±èÀ¯±Ç', '1', '0930', 'Á¦1ÅõÇ¥Àå', 'N');
-insert into table_vote values ('89010120002', 'ÀÌÀ¯±Ç', '2', '0930', 'Á¦1ÅõÇ¥Àå', 'N');
-insert into table_vote values ('69010110003', '¹ÚÀ¯±Ç', '3', '0930', 'Á¦1ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('59010120004', 'È«À¯±Ç', '4', '0930', 'Á¦1ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('79010110005', 'Á¶À¯±Ç', '5', '0930', 'Á¦1ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('89010120006', 'ÃÖÀ¯±Ç', '1', '0930', 'Á¦1ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('59010110007', 'ÁöÀ¯±Ç', '1', '0930', 'Á¦1ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('49010120008', 'ÀåÀ¯±Ç', '3', '0930', 'Á¦1ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('79010110009', 'Á¤À¯±Ç', '3', '0930', 'Á¦1ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('89010120010', '°­À¯±Ç', '4', '0930', 'Á¦1ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('99010110011', '½ÅÀ¯±Ç', '5', '0930', 'Á¦1ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('79010120012', '¿ÀÀ¯±Ç', '1', '1330', 'Á¦1ÅõÇ¥Àå', 'Y');
-
-insert into table_vote values ('69010110013', 'ÇöÀ¯±Ç', '4', '1330', 'Á¦2ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('89010110014', '¿ÕÀ¯±Ç', '2', '1330', 'Á¦2ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('99010110015', 'À¯À¯±Ç', '3', '1330', 'Á¦2ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('79010110016', 'ÇÑÀ¯±Ç', '2', '1330', 'Á¦2ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('89010110017', '¹®À¯±Ç', '4', '1330', 'Á¦2ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('99010110018', '¾çÀ¯±Ç', '2', '1330', 'Á¦2ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('99010110019', '±¸À¯±Ç', '4', '1330', 'Á¦2ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('79010110020', 'È²À¯±Ç', '5', '1330', 'Á¦2ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('69010110021', '¹èÀ¯±Ç', '3', '1330', 'Á¦2ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('79010110022', 'ÀüÀ¯±Ç', '3', '1330', 'Á¦2ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('99010110023', '°íÀ¯±Ç', '1', '1330', 'Á¦2ÅõÇ¥Àå', 'Y');
-insert into table_vote values ('59010110024', '±ÇÀ¯±Ç', '3', '1330', 'Á¦2ÅõÇ¥Àå', 'Y');
+insert into table_member values ('1', 'ê¹€í›„ë³´', 'P1', '1', '6603011999991', 'ìˆ˜ì„ í™”ë™');
+insert into table_member values ('2', 'ì´í›„ë³´', 'P2', '3', '5503011999992', 'ë¯¼ë“¤ë˜ë™');
+insert into table_member values ('3', 'ë°•í›„ë³´', 'P3', '2', '7703011999993', 'ë‚˜íŒ”ê½ƒë™');
+insert into table_member values ('4', 'ì¡°í›„ë³´', 'P4', '2', '8803011999994', 'ì§„ë‹¬ë˜ë™');
+insert into table_member values ('5', 'ìµœí›„ë³´', 'P5', '3', '9903011999995', 'ê°œë‚˜ë¦¬ë™');
 
 
+insert into table_party values ('P1', 'Aì •ë‹¹', '2010-01-01', 'ìœ„ëŒ€í‘œ', '02', '1111', '0001');
+insert into table_party values ('P2', 'Bì •ë‹¹', '2010-02-01', 'ëª…ëŒ€í‘œ', '02', '1111', '0002');
+insert into table_party values ('P3', 'Cì •ë‹¹', '2010-03-01', 'ê¸°ëŒ€í‘œ', '02', '1111', '0003');
+insert into table_party values ('P4', 'Dì •ë‹¹', '2010-04-01', 'ì˜¥ëŒ€í‘œ', '02', '1111', '0004');
+insert into table_party values ('P5', 'Eì •ë‹¹', '2010-05-01', 'ì„ëŒ€í‘œ', '02', '1111', '0005');
+
+insert into table_vote values ('99010110001', 'ê¹€ìœ ê¶Œ', '1', '0930', 'ì œ1íˆ¬í‘œì¥', 'N');
+insert into table_vote values ('89010120002', 'ì´ìœ ê¶Œ', '2', '0930', 'ì œ1íˆ¬í‘œì¥', 'N');
+insert into table_vote values ('69010110003', 'ë°•ìœ ê¶Œ', '3', '0930', 'ì œ1íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('59010120004', 'í™ìœ ê¶Œ', '4', '0930', 'ì œ1íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('79010110005', 'ì¡°ìœ ê¶Œ', '5', '0930', 'ì œ1íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('89010120006', 'ìµœìœ ê¶Œ', '1', '0930', 'ì œ1íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('59010110007', 'ì§€ìœ ê¶Œ', '1', '0930', 'ì œ1íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('49010120008', 'ì¥ìœ ê¶Œ', '3', '0930', 'ì œ1íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('79010110009', 'ì •ìœ ê¶Œ', '3', '0930', 'ì œ1íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('89010120010', 'ê°•ìœ ê¶Œ', '4', '0930', 'ì œ1íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('99010110011', 'ì‹ ìœ ê¶Œ', '5', '0930', 'ì œ1íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('79010120012', 'ì˜¤ìœ ê¶Œ', '1', '1330', 'ì œ1íˆ¬í‘œì¥', 'Y');
+
+insert into table_vote values ('69010110013', 'í˜„ìœ ê¶Œ', '4', '1330', 'ì œ2íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('89010110014', 'ì™•ìœ ê¶Œ', '2', '1330', 'ì œ2íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('99010110015', 'ìœ ìœ ê¶Œ', '3', '1330', 'ì œ2íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('79010110016', 'í•œìœ ê¶Œ', '2', '1330', 'ì œ2íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('89010110017', 'ë¬¸ìœ ê¶Œ', '4', '1330', 'ì œ2íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('99010110018', 'ì–‘ìœ ê¶Œ', '2', '1330', 'ì œ2íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('99010110019', 'êµ¬ìœ ê¶Œ', '4', '1330', 'ì œ2íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('79010110020', 'í™©ìœ ê¶Œ', '5', '1330', 'ì œ2íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('69010110021', 'ë°°ìœ ê¶Œ', '3', '1330', 'ì œ2íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('79010110022', 'ì „ìœ ê¶Œ', '3', '1330', 'ì œ2íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('99010110023', 'ê³ ìœ ê¶Œ', '1', '1330', 'ì œ2íˆ¬í‘œì¥', 'Y');
+insert into table_vote values ('59010110024', 'ê¶Œìœ ê¶Œ', '3', '1330', 'ì œ2íˆ¬í‘œì¥', 'Y');
+
+select * from table_party;
+select * from table_member;
 select * from table_vote;

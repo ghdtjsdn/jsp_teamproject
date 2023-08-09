@@ -5,6 +5,7 @@
 -------------------------------------------------------------------------
 -------------------------------------------------------------------------
 --TABLE member_tbl_02
+drop table member_tbl_02;
 CREATE TABLE member_tbl_02(
 custno number(6) PRIMARY KEY,       --회원번호
 custname varchar2(20),              --회원성명
@@ -14,6 +15,8 @@ joindate date DEFAULT SYSDATE,                      --가입일자
 grade varchar2(1),                      --고객등급
 city varchar2(2)                        --거주도시
 );
+
+drop sequence seq_no;
 
 create sequence seq_no increment by 1 start with 100001;
 
@@ -28,10 +31,13 @@ commit;
 
 desc member_tbl_02;
 select * from member_tbl_02;
-drop table member_tbl_02;
+
 
 ---------------------------------------------------------------------------
 --TABLE money_tbl_02
+
+drop table money_tbl_02;
+
 CREATE TABLE money_tbl_02(
 custno number(6),           --회원번호
 salenol number(8),          --판매번호
@@ -53,13 +59,14 @@ insert into money_tbl_02 values(100004, 2016008, 500, 1, 300, 'A005', '20160104'
 insert into money_tbl_02 values(100004, 2016009, 600, 1, 600, 'A006', '20160104');
 insert into money_tbl_02 values(100004, 2016010, 3000, 1, 3000, 'A007', '20160106');
 
-select m1.custno, custname, grade, sum(price)
-from MEMBER_TBL_02 m1 inner join money_tbl_02 m2
+
+
+select m1.custno, custname, grade, sum(price) from MEMBER_TBL_02 m1 inner join money_tbl_02 m2
 on m1.custno=m2.custno
 group by m1.custno, m1.custname, m1.grade order by sum(price) desc;
 
 desc money_tbl_02;
-drop table money_tbl_02;
+
 select * from money_tbl_02;
 commit;
 

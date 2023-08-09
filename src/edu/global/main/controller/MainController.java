@@ -32,7 +32,6 @@ public class MainController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 
 		String viewPage = null;
-		GolfCommand command = null;
 
 		String uri = req.getRequestURI();
 		String subPath = "";

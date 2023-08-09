@@ -15,8 +15,6 @@ import edu.global.shop.command.MemberListCommand;
 import edu.global.shop.command.MemberModifyCommand;
 import edu.global.shop.command.MemberSaleCommand;
 import edu.global.shop.command.MemberWriteCommand;
-import edu.global.shop.dao.MemberDao;
-import edu.global.shop.dto.MemberDto;
 
 @WebServlet("/shop/*")
 public class MemberController extends HttpServlet {

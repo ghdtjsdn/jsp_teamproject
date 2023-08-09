@@ -2,7 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="edu.global.vote.dto.VoteDto" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="cPath" value="${pageContext.request.contextPath }" />
+<c:set var="subPath" value="/vote" />
+<c:set var="cssFolder" value="/static/css${subPath }"/>
 <%
 request.setCharacterEncoding("UTF-8");
 //list 불러오기
@@ -15,13 +18,17 @@ list = (ArrayList<VoteDto>)request.getAttribute("list");
 <head>
 <meta charset="UTF-8">
 <title>voteList</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${cPath }${cssFolder }/style.css"/>
 </head>
-<body>
-<%@ include file="topmenu.jsp" %>
-<section>
+<body class="d-flex vw-100 vh-100 flex-column justify-content-between">
+<header>
+  <%@ include file="/jsp/header/header.jsp" %>
+  <%@ include file="/jsp/vote/header/header.jsp" %>
+</header>
+<main class="d-flex h-100 text-center flex-column align-items-center">
 <h2>∙ 투표검수조회 ∙</h2>
-<div class="table">
-	<table style="width:700px;">
+	<table>
 		<tr>
 			<th>성명</th>
 			<th>생년월일</th>
@@ -47,8 +54,11 @@ list = (ArrayList<VoteDto>)request.getAttribute("list");
 		}
 		%>
 	</table>
-</div>
-</section>
-<%@ include file="footer.jsp" %>
+</main>
+<footer>
+<%@ include file="/jsp/vote/footer/footer.jsp" %>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="${cPath }${jsFolder}/script.js"></script>
 </body>
 </html>
