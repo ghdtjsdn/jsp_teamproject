@@ -41,6 +41,12 @@ public class GolfMemberDTO {
 	private int tuition;
 	private String grade;
 	
+	@Override
+	public String toString() {
+		return "GolfMemberDTO [regist_month=" + regist_month + ", c_no=" + c_no + ", c_name=" + c_name + ", class_name="
+				+ class_name + ", class_area=" + class_area + ", tuition=" + tuition + ", grade=" + grade + "]";
+	}
+
 	public GolfMemberDTO() {
 	}
 

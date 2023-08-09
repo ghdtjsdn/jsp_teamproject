@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+main{
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ), url(/jsp_teamproject/static/images/main-image.jpg) no-repeat center/cover ;
+}

@@ -2,7 +2,7 @@
  * 
  */
  
- 
+const registForm = document.querySelector("#regist-form");
 const registMonth = document.querySelector("#regist-month");
 const cName = document.querySelector("#c-name");
 
@@ -10,25 +10,33 @@ const cNo = document.querySelector("#c-no");
 const classArea = document.querySelector("#class-area");
 const className = document.querySelector("#class-name");
 const tuition = document.querySelector("#tuition");
+let grade;
 const submitBtn = document.querySelector("#submit");
 
 
 function changeValues (){
-	const cNameIndex = cName.selectedIndex;
-	if(cNameIndex === 0 ) return;
-  cNo.value = cName.options[cNameIndex].dataset.cno;
-
+  const cNameIndex = cName.selectedIndex;
+  if(isIndexNotZero(cNameIndex)){
+  	cNo.value = cName.options[cNameIndex].dataset.cno;
+  	grade = cName.options[cNameIndex].dataset.grade;
+  	console.log(grade);
+  }
   const classNameIndex = className.selectedIndex;
-  if(classNameIndex === 0 ) return;
-  tuition.value = className.options[classNameIndex].dataset.tuition;
+  if(isIndexNotZero(classNameIndex)){
+    tuition.value = className.options[classNameIndex].dataset.tuition;
+  	bargain.textContent = "";
+    if(cNo.value.charAt(0) !== '1' && cNo.value){
+      tuition.value /= 2;
+      bargain.textContent = "(50% 할인)";
+    }
+  }
   
-  bargain.textContent = "";
-  if(cNo.value.charAt(0) !== '1'){
-		tuition.value /= 2;
-		bargain.textContent = "(50% 할인)";
-  }	
 }
 
+const isIndexNotZero= (index) =>{
+	if (index === 0) return false;
+	return true;
+}
 cName.addEventListener("change",changeValues);
 
 classArea.addEventListener("change", changeValues);
@@ -75,22 +83,30 @@ submitBtn.addEventListener("click", ()=>{
     classArea.focus();
     return;
   }
-	
+  
   submitForm("./regist.do");
 });
 
 
 async function submitForm(action) {
+	const formData = new FormData(registForm);
+	formData.append("grade", grade);
+	
+    // 다른 필드들도 필요한대로 추가해주세요
+        const formDataString = new URLSearchParams(formData).toString();
 	try {
-		const response = await axios.post(action);
-		const {data} = response;
-		const {msg, redirectPage} = data;
+		const response = await axios.post(action, formDataString, {
+	      headers: {
+	        "Content-Type": "application/x-www-form-urlencoded" // MIME 타입 설정
+	      }	
+	    });
+	    const {msg, redirectPage} = response.data;
 		if (response.status === 200) {
 			alert(msg);
-			window.location.href = redirectPage;
 		} else {
-			alert("Registration failed.");
+			alert("연결이 정상적이지 않습니다.");
 		}
+		window.location.href = redirectPage;
 	} catch (error) {
 		console.error("An error occurred:", error);
 	}

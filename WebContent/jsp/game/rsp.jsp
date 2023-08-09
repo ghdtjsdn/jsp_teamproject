@@ -28,8 +28,8 @@
     </header>
 
 
-    <main>
-    <div class = "d-flex justify-content-evenly">
+<main class="d-flex h-100 flex-column justify-content-center align-items-center">
+    <div class = "d-flex w-100 justify-content-evenly">
         
         <div id = "" class="card" style="width: 18rem;">
             <div class="img"><img id = "YOU" src = "${cPath }${imageFolder }/rock.jpg" style="width:14rem; height:14rem;"></div>

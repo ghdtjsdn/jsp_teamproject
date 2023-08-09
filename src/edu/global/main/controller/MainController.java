@@ -45,17 +45,17 @@ public class MainController extends HttpServlet {
 		if ("/index.do".equals(com)) {
 			viewPage = "/index.jsp";
 		} else {
-			viewPage = "/index.do";
+			viewPage = "redirect:/index.do";
 		}
-		
-		System.out.println(viewPage.split("\\.")[1]);
-		if("do".equals(viewPage.split("\\.")[1])) {
-			String redirectPage = contextPath + viewPage;
+
+		if (viewPage.startsWith("redirect:")) {
+			String redirectPage = contextPath + viewPage.substring("redirect:".length());
 			resp.sendRedirect(redirectPage);
 		} else {
 			String forwardPage = forwardPrefix + viewPage;
 			RequestDispatcher dispatcher = req.getRequestDispatcher(forwardPage);
 			dispatcher.forward(req, resp);
 		}
+
 	}
 }

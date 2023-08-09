@@ -14,7 +14,7 @@
 <body> -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="${cpath }/index.do">메인 페이지</a>
+    <a class="navbar-brand" href="${cPath }/index.do">메인 페이지</a>
     <button class="navbar-toggler" type="button"
       data-bs-toggle="collapse" data-bs-target="#mainNavbarScroll"
       aria-controls="navbarScroll" aria-expanded="false"

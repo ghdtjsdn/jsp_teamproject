@@ -23,7 +23,7 @@
   <div class="d-flex flex-column align-items-center" style="width:600px;">
     <h1 class="mt-5 mb-3">수강신청</h1>
 
-  <form id="regist-form" class="w-100" method="post">
+  <form id="regist-form" class="w-100" method="post" enctype="application/x-www-form-urlencoded">
     <table class="table table-bordered table-secondary">
       <tr>
         <th scope="row" class="w-25 text-center">수강월</th>
@@ -34,14 +34,14 @@
         <td>
           <select id="c-name" name="c-name">
             <option selected disabled>이름을 선택하세요</option>
-            <option data-cno="10001" value="홍길동">홍길동</option>
+<!--             <option data-cno="10001" value="홍길동">홍길동</option>
             <option data-cno="10002" value="장발장">장발장</option>
             <option data-cno="10003" value="임꺽정">임꺽정</option>
             <option data-cno="20001" value="성춘향">성춘향</option>
-            <option data-cno="20002" value="이몽룡">이몽룡</option>
-<%--             <c:forEach var="member" items="${ memberList}">
-            <option data-cno="${member.c_no }" value="${member.c_name }">${member.c_name }</option>
-            </c:forEach> --%>
+            <option data-cno="20002" value="이몽룡">이몽룡</option> -->
+            <c:forEach var="member" items="${ memberList}">
+            <option data-grade="${member.grade }" data-cno="${member.c_no }" value="${member.c_name }">${member.c_name }</option>
+            </c:forEach>
           </select>
         </td>
       </tr>
@@ -54,14 +54,14 @@
         <td>
           <select id="class-area" name="class-area">
             <option selected disabled>강의장소를 선택하세요</option>
-            <option value="서울본원">서울본원</option>
+<!--             <option value="서울본원">서울본원</option>
             <option value="성남분원">성남분원</option>
             <option value="대전분원">대전분원</option>
             <option value="부산분원">부산분원</option>
-            <option value="대구분원">대구분원</option>
-<%--             <c:forEach var="member" items="${ memberList}">
-            <option data-cno="${member.c_no }" value="${member.c_name }">${member.c_name }</option>
-            </c:forEach> --%>            
+            <option value="대구분원">대구분원</option> -->
+             <c:forEach var="classes" items="${ classList}">
+            <option value="${classes.class_area }">${classes.class_area }</option>
+            </c:forEach>
           </select>
         </td>
       </tr>
@@ -70,10 +70,13 @@
         <td>
           <select id="class-name" name="class-name">
             <option selected disabled>강의명을 선택하세요</option>
-            <option data-tuition="100000" value="초급반">초급반</option>
+            <!-- <option data-tuition="100000" value="초급반">초급반</option>
             <option data-tuition="200000" value="중급반">중급반</option>
             <option data-tuition="300000" value="고급반">고급반</option>
-            <option data-tuition="400000" value="심화반">심화반</option>
+            <option data-tuition="400000" value="심화반">심화반</option> -->
+            <c:forEach var="teacher" items="${ teacherList}">
+            <option data-tuition="${teacher.class_price }" value="${teacher.class_name }">${teacher.class_name }</option>
+            </c:forEach>
           </select>
         </td>
       </tr>

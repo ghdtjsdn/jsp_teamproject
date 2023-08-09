@@ -13,6 +13,7 @@ import edu.global.golf.command.GolfCommand;
 import edu.global.golf.command.GolfIndexCommand;
 import edu.global.golf.command.GolfMemberListCommand;
 import edu.global.golf.command.GolfRegistCommand;
+import edu.global.golf.command.GolfRegistPageCommand;
 import edu.global.golf.command.GolfSalesResultCommand;
 import edu.global.golf.command.GolfTeacherListCommand;
 
@@ -34,6 +35,7 @@ public class GolfController extends HttpServlet{
 	public void actionDo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		req.setCharacterEncoding("UTF-8");
+		
 		String jsonResponse = null;
 		String viewPage = null;
 		GolfCommand command = null;
@@ -43,7 +45,7 @@ public class GolfController extends HttpServlet{
 		String forwardPrefix = "/jsp/golf";
 		String contextPath = req.getContextPath() + subPath;
 		String com = uri.substring(contextPath.length());
-		
+
 		System.out.println(uri);
 		System.out.println(contextPath);
 		System.out.println(com);
@@ -59,20 +61,18 @@ public class GolfController extends HttpServlet{
 			
 			viewPage = "/teacher-list.jsp";
 		} else if("/regist-page.do".equals(com)) { 
-			command = new GolfRegistCommand();
+			command = new GolfRegistPageCommand();
 			command.execute(req, resp);
 			
 			viewPage = "/regist-page.jsp";
 		} else if("/regist.do".equals(com)) {
-			//command.execute(req, resp);
-	        resp.setContentType("application/json");
-	        resp.setCharacterEncoding("UTF-8");
+			command = new GolfRegistCommand();
+			command.execute(req, resp);
+			
 
-	        viewPage = "/index.do";
-	        String msg = "수강신청이 완료되었습니다.";
-			String redirectPage = contextPath + viewPage;
+	        viewPage = "redirect:/index.do";
 
-			jsonResponse = jsonParse(msg, redirectPage);
+	        jsonResponse ="go";
 		} else if("/member-list.do".equals(com)){
 			command = new GolfMemberListCommand();
 			command.execute(req, resp);
@@ -84,13 +84,16 @@ public class GolfController extends HttpServlet{
 			
 			viewPage ="/sales-result.jsp";
 		} else {
-			viewPage = "/index.do";
+			viewPage = "redirect:/index.do";
 		}
 		
 		if(jsonResponse != null) {
+			String redirectPage = contextPath + viewPage.substring("redirect:".length());
+			
+			jsonResponse = jsonParse(resp.getHeader("msg"), redirectPage);
 			resp.getWriter().write(jsonResponse);
-		} else if("do".equals(viewPage.split("\\.")[1])) {
-			String redirectPage = contextPath + viewPage;
+		} else if(viewPage.startsWith("redirect:")) {
+			String redirectPage = contextPath + viewPage.substring("redirect:".length());
 			resp.sendRedirect(redirectPage);
 		} else {
 			String forwardPage = forwardPrefix + viewPage;
@@ -102,9 +105,27 @@ public class GolfController extends HttpServlet{
 	
 	String jsonParse(String msg, String redirectPage) {
 		String jsonResponse = "{"
-        		+ "\"msg\": \""+msg+"\","
-        		+ "\"redirectPage\": \""+ redirectPage
-        		+ "\"}";
+				+ "\"msg\": \""+msg+"\","
+				+ "\"redirectPage\": \""+ redirectPage
+				+ "\"}";
 		return jsonResponse;
+	}
+	
+	class JSONBuilder{
+		StringBuilder json;
+		
+		public JSONBuilder(StringBuilder json) {
+			this.json = json;
+		}
+		
+		public StringBuilder add(String str) {
+			return json.append(str);
+		}
+		
+		@Override
+		public String toString() {
+			return json.toString();
+		}
+		
 	}
 }

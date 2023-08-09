@@ -1,28 +1,46 @@
 package edu.global.golf.command;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.global.golf.dao.GolfMemberDAO;
-import edu.global.golf.dao.GolfTeacherDAO;
 import edu.global.golf.dto.GolfMemberDTO;
-import edu.global.golf.dto.GolfTeacherDTO;
 
 public class GolfRegistCommand implements GolfCommand {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		GolfTeacherDAO teacherDAO = new GolfTeacherDAO();
-		GolfMemberDAO memberDAO = new GolfMemberDAO();
+		GolfMemberDAO dao= new GolfMemberDAO();
 		
-		List<GolfMemberDTO> memberList = memberDAO.getMemberList();
-		List<GolfTeacherDTO> teacherList = teacherDAO.getTeacherList();
+		String registMonth = req.getParameter("regist-month");
+		String cName = req.getParameter("c-name");
+		String cNo = req.getParameter("c-no");
+		String classArea = req.getParameter("class-area");
+		String className = req.getParameter("class-name");
+		int tuition = Integer.valueOf( req.getParameter("tuition"));
+		String grade = req.getParameter("grade");
 		
+		GolfMemberDTO member = new GolfMemberDTO(
+				registMonth,
+				cName,
+				cNo,
+				classArea,
+				className,
+				tuition,
+				grade
+		);
 		
-		req.setAttribute("memberList", memberList);
-		req.setAttribute("teacherList", teacherList);
+		System.out.println(member);
+		int result = dao.registClass(member);
+		String msg = null;
+		if(result > 0) {
+			msg = "수강신청이 완료되었습니다.";
+		} else {
+			msg="오류발생";
+		}
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        resp.addHeader("msg", msg);
 	}
 
 }

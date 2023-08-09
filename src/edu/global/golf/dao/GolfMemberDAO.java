@@ -67,5 +67,38 @@ public class GolfMemberDAO {
 		
 		return memberList; 
 	}
+
+	public int registClass(GolfMemberDTO member) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "insert into tablename (regist_month, c_name, c_no, class_area, class_name,"
+				+ " tuition, grade) values(?, ?, ?, ?, ?, ?, ?, ?)";
+		int result =0;
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(sql);
+	
+			pstmt.setString(1, member.getRegist_month());
+			pstmt.setString(2, member.getC_name());
+			pstmt.setString(3, member.getC_no());
+			pstmt.setString(4, member.getClass_area());
+			pstmt.setString(5, member.getClass_name());
+			pstmt.setInt(6, member.getTuition());
+			pstmt.setString(7, member.getGrade());
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		
+		return result; 
+	}
 	
 }
