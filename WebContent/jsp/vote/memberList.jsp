@@ -7,7 +7,7 @@
 request.setCharacterEncoding("UTF-8");
 //list 불러오기
 ArrayList<MemberDto> list = new ArrayList<MemberDto>();
-list = (ArrayList<MemberDto>)request.getAttribute("memberList");
+list = (ArrayList<MemberDto>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>

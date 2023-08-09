@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +18,7 @@ import edu.global.vote.command.VoteMainCommand;
 import edu.global.vote.command.VoteResultCommand;
 import edu.global.vote.dao.VoteDao;
 
+@WebServlet("*.do")
 public class VoteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;  
 
@@ -38,8 +40,6 @@ public class VoteController extends HttpServlet {
 		String conPath = request.getContextPath();
 		String com = uri.substring(conPath.length());
 		
-		VoteDao vote = new VoteDao();
-		String context = request.getContextPath();
 		
 		 if (com.equals("/main.do")) {
 			 command = new VoteMainCommand();
@@ -52,8 +52,8 @@ public class VoteController extends HttpServlet {
 	         viewPage = "memberList.jsp";
 	         
 	      } else if (com.equals("/voteMember.do")) {
-	    	 command = new VoteMemberCommand();
-	    	 command.execute(request, response);
+//	    	 command = new VoteMemberCommand();
+//	    	 command.execute(request, response);
 	         viewPage = "voteMember.jsp";
 	         
 	      } else if (com.equals("/voteList.do")) {
@@ -67,26 +67,32 @@ public class VoteController extends HttpServlet {
 	         viewPage = "voteResult.jsp";
 	         
 	      } else if (com.equals("/vote.do")) {
-	         int result = vote.insertVote(request, response);
-	         response.setContentType("text/html; charset=UTF-8");
-	         PrintWriter out = response.getWriter();
-	         if(result == 1) {
-	            out.println("<script>");
-	            out.println("alert('투표하기 정보가 정상적으로 등록 되었습니다!'); location.href='"+context+"'; ");
-	            out.println("</script>");
-	            out.flush();
-	         }else {
-	            out.println("<script>");
-	            out.println("alert('등록실패!'); location.href='"+context+"'; ");
-	            out.println("</script>");
-	            out.flush();
-	         }      
-	         
-	      }
-
-	      RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
-	      dispatcher.forward(request, response);
-
+	    	  command = new VoteMemberCommand();
+	    	  command.execute(request, response);
+	    	  int result = (int)request.getAttribute("voteMember");
+	    	  System.out.println(result);
+	    	  response.setContentType("text/html; charset=UTF-8");
+	    	  PrintWriter out=response.getWriter();
+	    	  if(result == 1) {
+	    	  out.println("<script>");	  
+	    	  out.println("alert('투표하기 정보가 정상적으로 등록 되었습니다!'); location.href='"+conPath+
+	    				"/main.do"+"'; ");
+	    	  out.println("</script>");
+	    	  out.flush();
+	    	  } else {
+	    	  out.println("<script>");	 
+	    	  out.println("alert('등록실패!'); location.href='"+conPath+"/main.do"+"'; ");
+	    	  out.println("</script>"); out.flush(); 
+	    	  }
+	    	  viewPage = "/main.do";
+	        }
+		      System.out.println(viewPage);
+		      if("redirect:".equals(viewPage.substring(0, viewPage.length() > 9 ? 9 : viewPage.length()))) {
+//					String redirectPage = conPath + viewPage.substring(9);
+//					response.sendRedirect(redirectPage);
+				}  else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
+				dispatcher.forward(request, response);
+			}		
 	   }
-
 	}
