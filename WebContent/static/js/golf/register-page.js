@@ -14,8 +14,8 @@ let grade;
 const submitBtn = document.querySelector("#submit");
 const resetBtn = document.querySelector("#reset");
 
-resetBtn.addEventListener("click", (e)=>{
-	   bargain.textContent = "";
+resetBtn.addEventListener("click", ()=>{
+  bargain.textContent = "";
 })
 
 function changeValues (){
@@ -48,7 +48,8 @@ className.addEventListener("change", changeValues);
 
 
 
-submitBtn.addEventListener("click", ()=>{
+submitBtn.addEventListener("click", (e)=>{
+	e.preventDefault();
   const year = parseInt(registMonth.value.substring(0,4));
   const month = parseInt(registMonth.value.substring(4, 6));
   if(Number(registMonth.value) != registMonth.value){

@@ -72,7 +72,7 @@ public class GolfController extends HttpServlet{
 
 	        viewPage = "redirect:index.do";
 
-	        jsonResponse ="go";
+	        jsonResponse ="RESTful";
 		} else if("/member-list.do".equals(com)){
 			command = new GolfMemberListCommand();
 			command.execute(req, resp);
@@ -87,7 +87,7 @@ public class GolfController extends HttpServlet{
 			viewPage = "redirect:index.do";
 		}
 		
-		if(jsonResponse != null) {
+		if("RESTful".equals(jsonResponse)) {
 			String redirectPage = contextPath + subPath + "/" + viewPage.substring("redirect:".length());
 			if(viewPage.startsWith("redirect:/")) {
 				redirectPage = contextPath + viewPage.substring("redirect:".length());
