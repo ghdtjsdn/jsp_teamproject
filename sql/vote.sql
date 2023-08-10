@@ -1,5 +1,7 @@
 desc table_vote;
 
+drop table table_vote;
+
 create table table_vote(
 v_jumin char(13) not null primary key,
 v_name varchar2(20),
@@ -9,6 +11,8 @@ v_area char(20),
 v_confirm char(1)
 );
 
+drop table table_member;
+
 create table table_member(
 m_no char(1) not null primary key,
 m_name varchar2(20),
@@ -17,6 +21,8 @@ p_school char(1),
 m_jumin char(13),
 m_city varchar2(20)
 );
+
+drop table table_party;
 
 create table table_party(
 p_code char(2) not null primary key,
@@ -70,3 +76,6 @@ insert into table_vote values ('59010110024', '권유권', '3', '1330', '제2투
 select * from table_party;
 select * from table_member;
 select * from table_vote;
+
+
+commit;
