@@ -37,9 +37,9 @@ public class GameController extends HttpServlet {
 		
 		String uri = request.getRequestURI();
 		String subPath = "/game";
-		String forwardPrefix = "/jsp/game";
-		String contextPath = request.getContextPath() + subPath;
-		String com = uri.substring(contextPath.length());
+		String forwardPrefix = "/jsp"+subPath;
+		String contextPath = request.getContextPath();
+		String com = uri.substring((contextPath+subPath).length());
 		
 		System.out.println(uri);
 		System.out.println(contextPath);
@@ -53,12 +53,15 @@ public class GameController extends HttpServlet {
 			
 		} else if("/lotto.do".equals(com)) {
 			viewPage = "/lotto.jsp";
-		}else {
-			viewPage = "redirect:/index.do";
+		} else {
+			viewPage = "redirect:index.do";
 		}
 		
 		if(viewPage.startsWith("redirect:")) {
-			String redirectPage = contextPath + viewPage.substring("redirect:".length());
+			String redirectPage = contextPath + subPath + "/" + viewPage.substring("redirect:".length());
+			if(viewPage.startsWith("redirect:/")) {
+				redirectPage = contextPath + viewPage.substring("redirect:".length());
+			}
 			response.sendRedirect(redirectPage);
 		} else {
 			String forwardPage = forwardPrefix + viewPage;

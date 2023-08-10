@@ -41,10 +41,18 @@ public class VoteController extends HttpServlet {
 
 		String uri = request.getRequestURI();
 		String subPath = "/vote";
-		String forwardPrefix = "/jsp/vote";
-		String conPath = request.getContextPath() + subPath;
-		String com = uri.substring(conPath.length());
+		String forwardPrefix = "/jsp"+subPath;
+		String conPath = request.getContextPath();
+		String com = uri.substring((conPath+subPath).length());
 
+		
+		
+		System.out.println(uri);
+		System.out.println(conPath);
+		System.out.println(com);
+		
+		
+		
 		if (com.equals("/main.do")) {
 			command = new VoteMainCommand();
 			command.execute(request, response);
@@ -86,19 +94,24 @@ public class VoteController extends HttpServlet {
 				out.println("</script>");
 				out.flush();
 			}
-			viewPage = "redirect:/main.do";
+			viewPage = "redirect:main.do";
 		} else {
-			viewPage = "redirect:/main.do";
+			viewPage = "redirect:main.do";
 		}
 		System.out.println(viewPage);
 
-		if (viewPage.startsWith("redirect:")) {
-			String redirectPage = conPath + viewPage.substring("redirect:".length());
+		if(viewPage.startsWith("redirect:")) {
+			String redirectPage = conPath + subPath + "/" + viewPage.substring("redirect:".length());
+			if(viewPage.startsWith("redirect:/")) {
+				redirectPage = conPath + viewPage.substring("redirect:".length());
+			}
 			response.sendRedirect(redirectPage);
 		} else {
 			String forwardPage = forwardPrefix + viewPage;
 			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPage);
 			dispatcher.forward(request, response);
 		}
+		
+		
 	}
 }

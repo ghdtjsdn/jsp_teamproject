@@ -42,9 +42,10 @@ public class GolfController extends HttpServlet{
 		
 		String uri = req.getRequestURI();
 		String subPath = "/golf";
-		String forwardPrefix = "/jsp/golf";
-		String contextPath = req.getContextPath() + subPath;
-		String com = uri.substring(contextPath.length());
+		String forwardPrefix = "/jsp"+subPath;
+		String contextPath = req.getContextPath();
+		String com = uri.substring((contextPath+subPath).length());
+		
 
 		System.out.println(uri);
 		System.out.println(contextPath);
@@ -68,9 +69,8 @@ public class GolfController extends HttpServlet{
 		} else if("/regist.do".equals(com)) {
 			command = new GolfRegistCommand();
 			command.execute(req, resp);
-			
 
-	        viewPage = "redirect:/index.do";
+	        viewPage = "redirect:index.do";
 
 	        jsonResponse ="go";
 		} else if("/member-list.do".equals(com)){
@@ -84,16 +84,21 @@ public class GolfController extends HttpServlet{
 			
 			viewPage ="/sales-result.jsp";
 		} else {
-			viewPage = "redirect:/index.do";
+			viewPage = "redirect:index.do";
 		}
 		
 		if(jsonResponse != null) {
-			String redirectPage = contextPath + viewPage.substring("redirect:".length());
-			
+			String redirectPage = contextPath + subPath + "/" + viewPage.substring("redirect:".length());
+			if(viewPage.startsWith("redirect:/")) {
+				redirectPage = contextPath + viewPage.substring("redirect:".length());
+			}
 			jsonResponse = jsonParse(resp.getHeader("msg"), redirectPage);
 			resp.getWriter().write(jsonResponse);
 		} else if(viewPage.startsWith("redirect:")) {
-			String redirectPage = contextPath + viewPage.substring("redirect:".length());
+			String redirectPage = contextPath + subPath + "/" + viewPage.substring("redirect:".length());
+			if(viewPage.startsWith("redirect:/")) {
+				redirectPage = contextPath + viewPage.substring("redirect:".length());
+			}
 			resp.sendRedirect(redirectPage);
 		} else {
 			String forwardPage = forwardPrefix + viewPage;

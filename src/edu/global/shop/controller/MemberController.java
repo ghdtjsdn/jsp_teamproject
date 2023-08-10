@@ -43,51 +43,60 @@ public class MemberController extends HttpServlet {
 
 		System.out.println("actionDo() ..");
 		request.setCharacterEncoding("UTF-8");
-
-		String viewPage = null;
+		
 		MemberCommand command = null;
-
+		String viewPage = null;
+		
 		String uri = request.getRequestURI();
 		String subPath = "/shop";
-		String forwardPrefix = "/jsp/shop";
-		String contextPath = request.getContextPath() + subPath;
-		String com = uri.substring(contextPath.length());
-
+		String forwardPrefix = "/jsp"+subPath;
+		String contextPath = request.getContextPath();
+		String com = uri.substring((contextPath+subPath).length());
+		
 		System.out.println(uri);
 		System.out.println(contextPath);
 		System.out.println(com);
 
 		if(com.equals("/index.do")){
+			
 			viewPage = "/index.jsp";
 		} else if (com.equals("/memberForm.do")) {
 			command = new MemberListCommand();
 			command.execute(request, response);
+			
 			viewPage = "/memberForm.jsp";
 		} else if (com.equals("/content_view.do")) {
 			command = new MemberContentCommand();
 			command.execute(request, response);
+			
 			viewPage = "/content_view.jsp";
 		} else if (com.equals("/joinForm.do")) {
+			
 			viewPage = "/joinForm.jsp";
 		} else if (com.equals("/joinProcess.do")) {
 			command = new MemberWriteCommand();
 			command.execute(request, response);
-			viewPage = "redirect:/memberForm.do";
 			
+			viewPage = "redirect:memberForm.do";
 		} else if (com.equals("/modForm.do")) {
 			command = new MemberModifyCommand();
 			command.execute(request, response);
-			viewPage = "redirect:/memberForm.do";
+			
+			viewPage = "redirect:memberForm.do";
 		} else if (com.equals("/SaleForm.do")) {
 			command = new MemberSaleCommand();
 			command.execute(request, response);
+			
 			viewPage = "/SaleForm.jsp";
 		} else {
-			viewPage = "redirect:/index.do";
+			viewPage = "redirect:index.do";
 		}
 		
 		if(viewPage.startsWith("redirect:")) {
-			String redirectPage = contextPath + viewPage.substring("redirect:".length());
+			String redirectPage = contextPath + subPath + "/" + viewPage.substring("redirect:".length());
+			if(viewPage.startsWith("redirect:/")) {
+				redirectPage = contextPath + viewPage.substring("redirect:".length());
+			}
 			response.sendRedirect(redirectPage);
 		} else {
 			String forwardPage = forwardPrefix + viewPage;

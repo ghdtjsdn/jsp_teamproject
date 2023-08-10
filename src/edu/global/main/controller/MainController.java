@@ -29,32 +29,36 @@ public class MainController extends HttpServlet {
 
 	public void actionDo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		req.setCharacterEncoding("UTF-8");
-
 		String viewPage = null;
-
+		
 		String uri = req.getRequestURI();
 		String subPath = "";
-		String forwardPrefix = "/jsp";
-		String contextPath = req.getContextPath() + subPath;
-		String com = uri.substring(contextPath.length());
-		System.out.println(com);
-		System.out.println(contextPath);
+		String forwardPrefix = "/jsp"+subPath;
+		String contextPath = req.getContextPath();
+		String com = uri.substring((contextPath+subPath).length());
+		
 		System.out.println(uri);
-		if ("/index.do".equals(com)) {
+		System.out.println(contextPath);
+		System.out.println(com);
+		
+		if("/index.do".equals(com)) {
 			viewPage = "/index.jsp";
-		} else {
-			viewPage = "redirect:/index.do";
-		}
 
-		if (viewPage.startsWith("redirect:")) {
-			String redirectPage = contextPath + viewPage.substring("redirect:".length());
+		} else {
+			viewPage = "redirect:index.do";
+		}
+		
+		if(viewPage.startsWith("redirect:")) {
+			String redirectPage = contextPath + subPath + "/" + viewPage.substring("redirect:".length());
+			if(viewPage.startsWith("redirect:/")) {
+				redirectPage = contextPath + viewPage.substring("redirect:".length());
+			}
 			resp.sendRedirect(redirectPage);
 		} else {
 			String forwardPage = forwardPrefix + viewPage;
 			RequestDispatcher dispatcher = req.getRequestDispatcher(forwardPage);
 			dispatcher.forward(req, resp);
 		}
-
+		
 	}
 }
