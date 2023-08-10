@@ -23,8 +23,8 @@
         style="-bs-scroll-height: 100px;">
         <li class="nav-item"><a id="teacher-list" class="nav-link"
           href="${cPath }${subPath }/teacher-list.do">강사조회</a></li>
-        <li class="nav-item"><a id="regist-page" class="nav-link"
-          href="${cPath }${subPath }/regist-page.do">수강신청</a></li>
+        <li class="nav-item"><a id="register-page" class="nav-link"
+          href="${cPath }${subPath }/register-page.do">수강신청</a></li>
         <li class="nav-item"><a id="member-list" class="nav-link"
           href="${cPath }${subPath }/member-list.do">회원정보조회</a></li>
         <li class="nav-item"><a id="sales-result" class="nav-link"

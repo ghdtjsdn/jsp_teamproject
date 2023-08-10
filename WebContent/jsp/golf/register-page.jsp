@@ -94,7 +94,7 @@
         <td colspan="2">
           <div class="d-flex justify-content-center align-items-center">
             <input id="submit" class="m-2" type="button" value="수강신청" />
-            <input class="m-2" type="reset" value="다시쓰기" />
+            <input id="reset" class="m-2" type="reset" value="다시쓰기" />
           </div>
         </td>
       </tr>
@@ -106,7 +106,7 @@
   <%@ include file="/jsp/golf/footer/footer.jsp" %>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="${jsFolder }/regist-page.js"></script>
+<script src="${jsFolder }/register-page.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> 
 </body>
 </html>

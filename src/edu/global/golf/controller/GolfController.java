@@ -61,12 +61,12 @@ public class GolfController extends HttpServlet{
 			command.execute(req, resp);
 			
 			viewPage = "/teacher-list.jsp";
-		} else if("/regist-page.do".equals(com)) { 
+		} else if("/register-page.do".equals(com)) { 
 			command = new GolfRegistPageCommand();
 			command.execute(req, resp);
 			
-			viewPage = "/regist-page.jsp";
-		} else if("/regist.do".equals(com)) {
+			viewPage = "/register-page.jsp";
+		} else if("/register.do".equals(com)) {
 			command = new GolfRegistCommand();
 			command.execute(req, resp);
 

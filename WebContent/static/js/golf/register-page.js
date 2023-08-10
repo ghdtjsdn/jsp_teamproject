@@ -12,19 +12,22 @@ const className = document.querySelector("#class-name");
 const tuition = document.querySelector("#tuition");
 let grade;
 const submitBtn = document.querySelector("#submit");
+const resetBtn = document.querySelector("#reset");
 
+resetBtn.addEventListener("click", (e)=>{
+	   bargain.textContent = "";
+})
 
 function changeValues (){
   const cNameIndex = cName.selectedIndex;
   if(isIndexNotZero(cNameIndex)){
   	cNo.value = cName.options[cNameIndex].dataset.cno;
   	grade = cName.options[cNameIndex].dataset.grade;
-  	console.log(grade);
   }
   const classNameIndex = className.selectedIndex;
+  bargain.textContent = "";
   if(isIndexNotZero(classNameIndex)){
     tuition.value = className.options[classNameIndex].dataset.tuition;
-  	bargain.textContent = "";
     if(cNo.value.charAt(0) !== '1' && cNo.value){
       tuition.value /= 2;
       bargain.textContent = "(50% 할인)";
@@ -84,7 +87,7 @@ submitBtn.addEventListener("click", ()=>{
     return;
   }
   
-  submitForm("./regist.do");
+  submitForm("./register.do");
 });
 
 
