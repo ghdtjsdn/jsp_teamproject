@@ -50,8 +50,3 @@ function userChoice(user) {
 
 	resultElement.textContent = result;
 }
-
-
-const $main = document.querySelector('main');
-$main.style.setProperty('--main-img', `url(${cPath}${imageFolder}/main.jpg)`);
-console.log($main)

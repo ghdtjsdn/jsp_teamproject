@@ -92,21 +92,22 @@ async function submitForm(action) {
 	const formData = new FormData(registForm);
 	formData.append("grade", grade);
 	
-    const formDataString = new URLSearchParams(formData).toString();
+    // 다른 필드들도 필요한대로 추가해주세요
+  const formDataString = new URLSearchParams(formData).toString();
 	try {
-		const response = await axios.post(action, formDataString, {
-	      headers: {
-	        "Content-Type": "application/x-www-form-urlencoded"
-	      }	
-	    });
-	    const {msg, redirectPage} = response.data;
-		if (response.status === 200) {
-			alert(msg);
-		} else {
-			alert("연결이 정상적이지 않습니다.");
-		}
-		window.location.href = redirectPage;
+      const response = await axios.post(action, formDataString, {
+        headers: {
+        "Content-Type": "application/x-www-form-urlencoded" // MIME 타입 설정
+	    }	
+      });
+	  const {msg, redirectPage} = response.data;
+      if (response.status === 200) {
+        alert(msg);
+      } else {
+        alert("연결이 정상적이지 않습니다.");
+      }
+      window.location.href = redirectPage;
 	} catch (error) {
-		console.error("An error occurred:", error);
+      console.error("An error occurred:", error);
 	}
-};
+}

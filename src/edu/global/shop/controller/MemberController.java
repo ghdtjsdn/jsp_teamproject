@@ -72,11 +72,12 @@ public class MemberController extends HttpServlet {
 		} else if (com.equals("/joinProcess.do")) {
 			command = new MemberWriteCommand();
 			command.execute(request, response);
-			viewPage = "/memberForm.do";
+			viewPage = "redirect:/memberForm.do";
+			
 		} else if (com.equals("/modForm.do")) {
 			command = new MemberModifyCommand();
 			command.execute(request, response);
-			viewPage = "/memberForm.do";
+			viewPage = "redirect:/memberForm.do";
 		} else if (com.equals("/SaleForm.do")) {
 			command = new MemberSaleCommand();
 			command.execute(request, response);
@@ -86,7 +87,6 @@ public class MemberController extends HttpServlet {
 		}
 		
 		if(viewPage.startsWith("redirect:")) {
-
 			String redirectPage = contextPath + viewPage.substring("redirect:".length());
 			response.sendRedirect(redirectPage);
 		} else {

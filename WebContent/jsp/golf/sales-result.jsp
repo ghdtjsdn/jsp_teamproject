@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,7 +12,7 @@
 <title>강사매출현황 페이지</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"rel="stylesheet">
 </head>
-<body class="d-flex vw-100 vh-100 flex-column justify-content-between">
+<body class="d-flex w-100 vh-100 flex-column justify-content-between">
 <header>
   <%@ include file="/jsp/header/header.jsp" %>
   <%@ include file="/jsp/golf/header/header.jsp" %>

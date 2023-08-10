@@ -3,9 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="cPath" value="${pageContext.request.contextPath }"/>
 <c:set var="subPath" value="/game" />
-<c:set var="imageFolder" value="/static/images${subPath }" />
-<c:set var="jsFolder" value="/static/js${subPath }" />
-<c:set var="cssFolder" value="/static/css${subPath }" />
+<c:set var="currentPath" value="${cPath }${subPath }"/>
+<c:set var="imageFolder" value="${cPath }/static/images${subPath }" />
+<c:set var="jsFolder" value="${cPath }/static/js${subPath }" />
+<c:set var="cssFolder" value="${cPath }/static/css${subPath }" />  
 <!-- <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,7 +18,7 @@
 <body> -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="${cPath }${subPath }/index.do">게임</a>
+			<a class="navbar-brand" href="${currentPath }/index.do">게임</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#gameNavbarScroll"
 				aria-controls="navbarScroll" aria-expanded="false"
@@ -27,9 +28,9 @@
 			<div class="collapse navbar-collapse" id="gameNavbarScroll">
 				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
 					style="-bs-scroll-height: 100px;">
-					<li class="nav-item"><a id="rsp-page" class="nav-link" href="${cPath }${subPath }/rsp.do">가위바위보</a>
+					<li class="nav-item"><a id="rsp-page" class="nav-link" href="${currentPath }/rsp.do">가위바위보</a>
 					</li>
-					<li class="nav-item"><a id="lotto-page" class="nav-link" href="${cPath }${subPath }/lotto.do">로또</a>
+					<li class="nav-item"><a id="lotto-page" class="nav-link" href="${currentPath }/lotto.do">로또</a>
 					</li>
 					<!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,7 +55,7 @@
 			</div>
 		</div>
 	</nav>
-  <script src="${cPath }${jsFolder }/header/header.js"></script>
+  <script src="${jsFolder }/header/header.js"></script>
 <!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html> -->

@@ -46,13 +46,11 @@ submitBtn.addEventListener("click", function (){
 			alert("유권자확인이 선택되지 않았습니다!");
 			return;
 		}
-		form.action="/jsp_teamproject/vote.do";
 		submitBtn.type="submit";
 		
 	});
 function fn_reset(){
 	alert("정보를 지우고 처음부터 다시 입력합니다!");
-	location="voteMember.jsp";
 }
 
 window.onload = function (){
