@@ -41,9 +41,6 @@ public class GameController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String com = uri.substring((contextPath+subPath).length());
 		
-		System.out.println(uri);
-		System.out.println(contextPath);
-		System.out.println(com);
 		
 		if("/index.do".equals(com)) {
 			viewPage = "/index.jsp";
